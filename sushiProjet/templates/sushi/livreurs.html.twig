@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <h1>Liste des livreurs de notre agence</h1>
+
+    <div class="grid">
+        <div class="col">
+            <div class="row">
+
+                {% for livreur in livreurs %}
+
+                    <div class="card" style="width: 18rem;">
+
+                        <div class="card-body">
+                            <h5 class="card-title">ID:{{ livreur.ID }} </h5>
+                            <p class="card-text">Nom:{{ livreur.nom }}</p>
+                            <p class="card-text">Prenom:{{ livreur.prenom }}</p>
+                            <p class="card-text">Email:{{ livreur.email }}</p>
+                            <p class="card-text">Téléphone:{{ livreur.telephone }}</p>
+
+
+
+                        </div>
+                    </div>
+
+
+
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+{% endblock %}
