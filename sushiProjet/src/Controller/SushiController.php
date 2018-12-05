@@ -26,6 +26,14 @@ class SushiController extends AbstractController
         return $this->render('sushi/livreurs.html.twig',['livreurs'=>$livreurs]);
     }
 
+    /**
+     * @Route("/classement", name="classement")
+     */
+    public function classement(LivreurRepository $repository)
+    {
+        $livreurs=$repository->findAll();
+        return $this->render('sushi/classement.html.twig',['livreurs'=>$livreurs]);
+    }
 }
 
 

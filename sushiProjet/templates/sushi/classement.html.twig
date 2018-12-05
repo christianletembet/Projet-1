@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <h1>Classement des livreurs</h1>
+
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Nombre de livraisons</th>
+                <th scope="col">Temps de livraison moyen</th>
+                <th scope="col">Absences</th>
+                <th scope="col">Etat d'arrivée des commandes</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for livreur in livreurs %}
+            <tr>
+                <th scope="row">{{ livreur.ID }}</th>
+                <td>{{ livreur.nom }}</td>
+                <td>{{ livreur.nombrelivraisons }}</td>
+                <td>{{ livreur.tempslivraison }} minutes</td>
+                <td>{{ livreur.absences }}</td>
+                <td>{{ livreur.etatcommande }} / 10</td>
+            </tr>
+
+            {% endfor %}
+
+            <h2>Livreur le plus efficace : </h2>
+            <h2>Livreur le plus rapide : </h2>
+            <h2>Livreur le plus ponctuel : </h2>
+            <h2>Livreur le plus soigneux : </h2>
+            </tbody>
+        </table>
+
+
+
+
+
+{% endblock %}
