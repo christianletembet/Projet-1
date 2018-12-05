@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SushiController extends AbstractController
 {
     /**
-     * @Route("/sushi", name="sushi")
+     * @Route("/", name="sushi")
      */
     public function index()
     {
