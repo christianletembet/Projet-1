@@ -25,19 +25,18 @@
                     <a class="nav-link" href="{{ path('classement') }}">Classement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Administration</a>
+                    <a class="nav-link" href="{{ path('administration') }}">Administration</a>
                 </li>
 
             </ul>
         </div>
     </nav>
+
+    <div class="container">
         {% block body %}{% endblock %}
 
-
-
-
-
-
         {% block javascripts %}{% endblock %}
+    </div>
+
     </body>
 </html>
