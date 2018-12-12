@@ -5,9 +5,20 @@
 
     <h1>Administration</h1>
 
-    <h2>Ajouter un nouveau livreur</h2>
 
-    {{ form(formLivreur) }}
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">
+            Bienvenue sur la page Administration , sur cette page vous pouvez :
+        </a>
+        <a href="{{ path('ajouter') }}" class="list-group-item list-group-item-action">Ajouter un nouveau livreur</a>
+        <a href="{{ path('modifier') }}" class="list-group-item list-group-item-action">Modifier un livreur existant</a>
+        <a href="{{ path ('modifier') }}" class="list-group-item list-group-item-action">Supprimer un livreur</a>
+
+    </div>
+
+
+
+
 
 
 

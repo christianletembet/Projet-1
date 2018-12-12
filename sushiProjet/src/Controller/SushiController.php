@@ -42,8 +42,18 @@ class SushiController extends AbstractController
 
     /**
      * @Route("/administration", name="administration")
+     *
      */
-    public function administration(Request $request,ObjectManager $manager)
+    public function administration()
+
+    {
+        return $this->render('sushi/administration.html.twig');
+    }
+
+    /**
+     * @Route("/administration/ajouter", name="ajouter")
+     */
+    public function formulaire(Request $request,ObjectManager $manager)
 
     {
         $livreur = new Livreur();
@@ -56,15 +66,66 @@ class SushiController extends AbstractController
             ->add('tempsLivraison')
             ->add('absences')
             ->add('etatCommande')
-            ->add('save',SubmitType::class,[
-                'label'=>'Enregistrer'
-            ])
             ->getForm();
 
+        $formLivreur->handleRequest($request);
 
-        return $this->render('sushi/administration.html.twig',['formLivreur' =>$formLivreur->createView()]);
+        if($formLivreur->isSubmitted()&& $formLivreur->isValid()){
+            $manager->persist($livreur);
+            $manager->flush();
+
+            return $this->redirectToRoute('livreurs');
+        }
+
+        return $this->render('sushi/ajouter.html.twig',['formLivreur' =>$formLivreur->createView()]);
     }
 
+    /**
+     * @Route("/administration/modifier", name="modifier")
+     *
+     */
+    public function modifier(LivreurRepository $repository)
+
+    {
+        $livreurs=$repository->findAll();
+        return $this->render('sushi/modifier.html.twig',['livreurs'=>$livreurs]);
+    }
+
+    /**
+     * @Route("/administration/modifier/{id}", name="modifieride")
+     *
+     */
+    public function modifierID(Livreur $livreur,Request $request,ObjectManager $manager)
+
+    {
+        $formLivreur = $this ->createFormBuilder($livreur)
+            ->add('nom')
+            ->add('prenom')
+            ->add('email',EmailType::class)
+            ->add('telephone')
+            ->add('nombreLivraisons')
+            ->add('tempsLivraison')
+            ->add('absences')
+            ->add('etatCommande')
+            ->getForm();
+
+        $formLivreur->handleRequest($request);
+
+        if($formLivreur->isSubmitted()&& $formLivreur->isValid()){
+            $manager->persist($livreur);
+            $manager->flush();
+
+            return $this->redirectToRoute('livreurs');
+        }
+
+        return $this->render('sushi/modifieride.html.twig',['formLivreur' =>$formLivreur->createView()]);
+    }
+
+
+
+
 }
+
+
 
 

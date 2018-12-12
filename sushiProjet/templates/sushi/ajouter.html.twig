@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <h1>Ajouter un nouveau livreur</h1>
+
+    {{ form_start(formLivreur)}}
+
+    {{ form_row(formLivreur.nom , {'attr':{'placeholder': 'Nom du livreur' }}) }}
+
+    {{ form_row(formLivreur.prenom, {'attr':{'placeholder': 'Prénom du livreur' }}) }}
+
+    {{ form_row(formLivreur.email , {'attr':{'placeholder': 'Adresse email' }}) }}
+
+    {{ form_row(formLivreur.telephone , {'attr':{'placeholder': 'Numéro de téléphone' }}) }}
+
+    {{ form_row(formLivreur.nombreLivraisons , {'attr':{'placeholder': 'Nombre de livraisons effectuées' }}) }}
+
+    {{ form_row(formLivreur.tempsLivraison , {'attr':{'placeholder': 'Temps de livraison moyen' }}) }}
+
+    {{ form_row(formLivreur.absences , {'attr':{'placeholder': 'Nombre d\'absences' }}) }}
+
+    {{ form_row(formLivreur.etatCommande , {'attr':{'placeholder': 'Etat d\'arrivée des commandes' }}) }}
+
+    <button type="submit" class="btn-success">Ajouter un livreur</button>
+
+    {{ form_end(formLivreur) }}
+
+
+
+
+
+{% endblock %}

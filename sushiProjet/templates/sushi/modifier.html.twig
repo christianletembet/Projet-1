@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <h1>Veuillez selectionner le livreur sur lequel vous voulez effectuer une action:</h1>
+
+    <div class="list-group">
+        <p href="#" class="list-group-item list-group-item-action active">
+           Livreurs
+        </p>
+
+        {% for livreur in livreurs %}
+
+        <p href="#" class="list-group-item list-group-item-action"> {{ livreur.nom }}
+
+
+
+                <a style="text-decoration: none" href="{{ path('modifieride',{'id':livreur.id}) }}">
+                    <button type="button" class="btn btn-success"> Modifier </button>
+
+                    </a>
+
+
+
+            <button type="button" class="btn btn-danger">Supprimer</button>
+
+        </p>
+
+        {% endfor %}
+
+    </div>
+
+
+
+
+
+{% endblock %}
