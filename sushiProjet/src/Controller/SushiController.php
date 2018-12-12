@@ -122,6 +122,21 @@ class SushiController extends AbstractController
     }
 
 
+    /**
+     * @Route("/administration/modifier/delete/{id}", name="deleteide")
+     *
+     */
+
+    public function delete(Livreur $livreur, LivreurRepository $repository){
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($livreur);
+        $em->flush();
+
+        $livreurs=$repository->findAll();
+        return $this->render('sushi/modifier.html.twig',['livreurs'=>$livreurs]);
+    }
+
 
 
 }
