@@ -36,8 +36,16 @@ class SushiController extends AbstractController
      */
     public function classement(LivreurRepository $repository)
     {
-        $livreurs=$repository->findAll();
-        return $this->render('sushi/classement.html.twig',['livreurs'=>$livreurs]);
+        $viewdata['livreurs']=$repository->findAll();
+        $viewdata['classementEfficacity']=$repository->findAllOrderedByEfficacity();
+        $viewdata['classementRapidity']=$repository->findAllOrderedByRapdity();
+        $viewdata['classementPonctuality']=$repository->findAllOrderedByPonctuality();
+        $viewdata['classementSoigneux']=$repository-> findAllOrderedBySoigneux();
+
+
+
+
+        return $this->render('sushi/classement.html.twig',$viewdata);
     }
 
     /**

@@ -47,4 +47,44 @@ class LivreurRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAllOrderedByEfficacity()
+    {
+        return $this->createQueryBuilder('e')
+
+            ->orderBy('e.NombreLivraisons','DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findAllOrderedByRapdity()
+    {
+        return $this->createQueryBuilder('r')
+
+            ->orderBy('r.TempsLivraison','ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findAllOrderedByPonctuality()
+    {
+        return $this->createQueryBuilder('p')
+
+            ->orderBy('p.Absences','ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findAllOrderedBySoigneux()
+    {
+        return $this->createQueryBuilder('e')
+
+            ->orderBy('e.EtatCommande','DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
 }
