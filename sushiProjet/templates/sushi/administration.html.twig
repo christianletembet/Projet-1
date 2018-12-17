@@ -2,6 +2,8 @@
 
 {% block body %}
 
+    {% if app.user %}
+
 
     <h1>Administration</h1>
 
@@ -16,7 +18,15 @@
 
     </div>
 
+    {% else %}
 
+        <h2>Vous devez etre connecté pour acceder à cette page</h2>
+
+        <a href="{{ path('security_login')}}" class="btn btn-primary"> Connexion </a>
+
+        <a href="{{ path('security_registration')}}" >Vous n'avez pas de compte ? </a>
+
+    {% endif %}
 
 
 
