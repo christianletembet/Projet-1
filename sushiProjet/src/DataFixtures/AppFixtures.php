@@ -19,7 +19,7 @@ class AppFixtures extends Fixture
             $livreur->setNom($faker->lastName);
             $livreur->setPrenom($faker->firstName);
             $livreur->setEmail($faker->email);
-            $livreur->setTelephone($faker->phoneNumber);
+            $livreur->setTelephone($faker->e164PhoneNumber);
             $livreur->setNombreLivraisons($faker->numberBetween($min =0, $max = 350));
             $livreur->setTempsLivraison($faker->numberBetween($min =2, $max = 45));
             $livreur->setAbsences($faker->numberBetween($min = 0, $max =20));

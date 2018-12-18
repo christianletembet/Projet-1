@@ -6,6 +6,7 @@ use App\Entity\Livreur;
 use App\Repository\LivreurRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -38,7 +39,7 @@ class SushiController extends AbstractController
     {
         $viewdata['livreurs']=$repository->findAll();
         $viewdata['classementEfficacity']=$repository->findAllOrderedByEfficacity();
-        $viewdata['classementRapidity']=$repository->findAllOrderedByRapdity();
+        $viewdata['classementRapidity']=$repository->findAllOrderedByRapidity();
         $viewdata['classementPonctuality']=$repository->findAllOrderedByPonctuality();
         $viewdata['classementSoigneux']=$repository-> findAllOrderedBySoigneux();
 
@@ -69,11 +70,11 @@ class SushiController extends AbstractController
             ->add('nom')
             ->add('prenom')
             ->add('email',EmailType::class)
-            ->add('telephone')
-            ->add('nombreLivraisons')
-            ->add('tempsLivraison')
-            ->add('absences')
-            ->add('etatCommande')
+            ->add('telephone',IntegerType::class)
+            ->add('nombreLivraisons',IntegerType::class)
+            ->add('tempsLivraison',IntegerType::class)
+            ->add('absences',IntegerType::class)
+            ->add('etatCommande',IntegerType::class)
             ->getForm();
 
         $formLivreur->handleRequest($request);
@@ -110,11 +111,11 @@ class SushiController extends AbstractController
             ->add('nom')
             ->add('prenom')
             ->add('email',EmailType::class)
-            ->add('telephone')
-            ->add('nombreLivraisons')
-            ->add('tempsLivraison')
-            ->add('absences')
-            ->add('etatCommande')
+            ->add('telephone',IntegerType::class)
+            ->add('nombreLivraisons',IntegerType::class)
+            ->add('tempsLivraison',IntegerType::class)
+            ->add('absences',IntegerType::class)
+            ->add('etatCommande',IntegerType::class)
             ->getForm();
 
         $formLivreur->handleRequest($request);

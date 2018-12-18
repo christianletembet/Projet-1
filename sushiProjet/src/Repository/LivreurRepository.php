@@ -58,11 +58,11 @@ class LivreurRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findAllOrderedByRapdity()
+    public function findAllOrderedByRapidity()
     {
         return $this->createQueryBuilder('r')
 
-            ->orderBy('r.TempsLivraison','ASC')
+            ->orderBy('r.TempsLivraison','DESC')
             ->setMaxResults(1)
             ->getQuery()
             ->getResult();
