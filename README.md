@@ -6,6 +6,8 @@
 <p>#Se déplacer dans le projets : cd sushiProjet <br>
 
 <p>#Installer les différentes dépendances grace à la commande : composer update <br>
+  
+ <p> Creer la Bdd php bin/console doctrine:database:create <p>
 
 <p>#Créer des données : php bin/console doctrine:fixtures:load <br>
 
